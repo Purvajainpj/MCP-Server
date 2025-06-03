@@ -60,12 +60,12 @@ async def get_weather(city: str) -> str:
 if __name__ == "__main__":
     # For remote hosting, use HTTP server instead of stdio
     # Get port from environment variable (Azure Web Apps use PORT)
-    port = int(os.environ.get('PORT', 8000))
-    host = os.environ.get('HOST', '0.0.0.0')
+    # port = int(os.environ.get('PORT', 8000))
+    # host = os.environ.get('HOST', '0.0.0.0')
     
-    logger.info(f"Starting MCP server on {host}:{port}")
+    # logger.info(f"Starting MCP server on {host}:{port}")
     
     # Run as HTTP server for remote access
-    mcp.run_server(host=host, port=port)
+    mcp.run(transport="sse")
  
  
